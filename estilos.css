@@ -5,11 +5,11 @@ body {
     font-size: 28px;
 }
 
-div {
+.caja {
     width: 1000px;
     height: 1000px;
     background: #0f538f;
-    margin: 20px;
+    margin: 20px 20px ;
     display: flex;
     flex-direction: column;
     
@@ -38,10 +38,10 @@ p {
     padding: 20px;
     margin: 20px;
     border-radius: 5px;
-   
+
 }
 .boton:hover {
     color: #000;
-    background: #fff;
+    background: #10e963;
     
 }

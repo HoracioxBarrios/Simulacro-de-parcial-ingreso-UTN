@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <title>simulacro parcial - ejercicio 1</title>
     <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
-    <div>
+    <div class="caja">
         <ul>
             <li>Apellido:</li>
             <li>Nombre:</li>
@@ -17,31 +19,71 @@
         </ul>
         <h2>Ejercicio 1</h2>
         <p>
-            La Premier League de Inglaterra necesita un sistema capaz de reunir las estadisticas de los 
-           jugadores que la integran.
-           Para ellos se pide realizar una app.
-           
-           Se debe ingresar por cada jugador
-           
-           -Nombre del jugador
-           -Nacionalidad
-           -Posición (Arquero, Defensor, Mediocampista o Delantero)
-           -Cantidad de Tarjetas Rojas recibidas
-           -Goles 
-           
-           Se necesita saber
-           
-           a)El goleador del torneo
-           b)El jugador Argentino con menos rojas recibidas.
-           c)El porcentaje de jugadores Ingleses de la liga
-           
-           NOTA: Deben poder ingresarse todos números positivos, no se deben pueden ingresar números negativos.
-           
-           
+            La Premier League de Inglaterra necesita un sistema capaz de reunir las estadisticas de los
+            jugadores que la integran.
+            Para ellos se pide realizar una app.
+
+            Se debe ingresar por cada jugador
+
+            -Nombre del jugador
+            -Nacionalidad
+            -Posición (Arquero, Defensor, Mediocampista o Delantero)
+            -Cantidad de Tarjetas Rojas recibidas
+            -Goles
+
+            Se necesita saber
+
+            a)El goleador del torneo
+            b)El jugador Argentino con menos rojas recibidas.
+            c)El porcentaje de jugadores Ingleses de la liga
+
+            NOTA: Deben poder ingresarse todos números positivos, no se deben pueden ingresar números negativos.
+
+
         </p>
         <button class="boton" onclick="mostrar()">Mi boton</button>
     </div>
-    
+
+    <div class="caja">
+
+        <ul>
+            <li>Apellido:</li>
+            <li>Nombre:</li>
+            <li>Comisión:</li>
+            <li>Tutor:</li>
+        </ul>
+        <h2>Ejercicio 2</h2>
+        <p>
+            Ejercicio 2
+
+            Dr. Gregory Cat (Diagnostico Veterinario)
+            Para el hospital de mascotas: Princeton-Plainsboro de Nueva Jersey.
+
+            Es necesario registrar el ingreso de las mascotas al hospital, para esto hay que considerar
+            los siguientes datos y encasillarlos en ciertos diagnósticos para poder derivarlos adecuadamente:
+
+            Nombre de la mascota
+            Edad (Validar 1 - 20)
+            Tipo: (Validar “gato”, “perro”, “hamster”)
+            Peso: (Más de 0)
+            Diagnostico: (Validar “problemas digestivos”, “otitis”, “alergias en la piel”, “parasitos”,
+            “picazon de abeja”)
+            Vacuna antirrábica (validar “si”, ”no”)
+
+            Informes:
+
+            a) Nombre de la mascota más vieja con la vacuna antirrábica
+            b) Cantidad de mascotas sin vacuna antirrábica y con parásitos
+            c) El tipo de mascota con más ingresos por problemas digestivos.
+            d) Nombre, edad y diagnóstico de la mascota más joven ingresada.
+            e) Cantidad de perros ingresados por otitis.
+
+        </p>
+        <button class="boton" onclick="mostrar()">Mi boton</button>
+    </div>
+
     <script src="simulacro-parcial.js"></script>
+    <!--<script src="simulacro-parcial2.js"></script>-->
 </body>
+
 </html>
