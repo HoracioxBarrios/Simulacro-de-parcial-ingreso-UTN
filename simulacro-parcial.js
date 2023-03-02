@@ -3,7 +3,7 @@
  * Nombre:
  * Comisión:
  * Tutor:
-  
+
 Ejercicio 1
 ***************
 La Premier League de Inglaterra necesita un sistema capaz de reunir las 
@@ -53,29 +53,32 @@ function mostrar() {
     do{
 
         nombre = prompt("Ingrese nombre del jugador");
-        //asi esria bien la validacion, aunque no es algo que se nos va a evaluar si ingresa un numero en este caso.
         /* 
         while(!isNaN(nombre)){// si el user ingresa un numero isNaN devuelve false, entonces niego para que sea verdadero y pida el nombre que es string
             nombre = prompt("Incorrecto! - Ingrese nombre del jugador");
         }
         */
-        nacionalidad = prompt("Ingrese nacionalidad");
-        nacionalidad = nacionalidad.toLowerCase();
-
-
-        posicion = prompt("Posición (Arquero, Defensor, Mediocampista o Delantero)");
-        posicion = posicion.toLowerCase();
-        // valido la posicion
-        while (posicion != "arquero" && posicion != "defensor"
-            && posicion != "mediocampista" && posicion != "delantero"){
-            posicion = prompt("Incorrecto! - Posición (Arquero, Defensor, Mediocampista o Delantero)");
-            posicion = posicion.toLowerCase();
+        
+        // la nacionalidad la hice de este modo para que el usuario ingrese un numero y no tenga que escribir , argentina ,inglaterra,etc , y agregue "otro" como ejemplo abarcativo 
+        nacionalidad = prompt("Ingrese nacionalidad 1)argentino - 2)inglaterra - 3)otro");
+        nacionalidad = parseInt(nacionalidad);
+        while(nacionalidad < 1 || nacionalidad > 3 || isNaN(nacionalidad)){
+            nacionalidad = prompt("Incorrecto! - Ingrese nacionalidad 1)argentino - 2)inglaterra - 3)otro");
+            nacionalidad = parseInt(nacionalidad);
         }
 
-        tarjetasRojas = prompt("Cabtidad de tarjetas rojas recibidas");
+        posicion = prompt("Ingrese Posición: 1)Arquero - 2)Defensor - 3)Mediocampista - 4)Delantero)");
+        posicion = parseInt(posicion);
+        // valido la posicion
+        while (posicion < 1 || posicion > 4 || isNaN(posicion)){
+            posicion = prompt("Incorrecto! - Ingrese Posición: 1)Arquero - 2)Defensor - 3)Mediocampista - 4)Delantero)");
+            posicion = parseInt(posicion);
+        }
+
+        tarjetasRojas = prompt("Cantidad de tarjetas rojas recibidas");
         tarjetasRojas = parseInt(tarjetasRojas);  //parseo
         while(tarjetasRojas < 0){// valido que no entren negativos
-            tarjetasRojas = prompt("Incorrecto! - ingrese Cabtidad de tarjetas rojas recibidas");
+            tarjetasRojas = prompt("Incorrecto! - ingrese Cantidad de tarjetas rojas recibidas");
             tarjetasRojas = parseInt(tarjetasRojas);
         }
 
@@ -86,8 +89,34 @@ function mostrar() {
             golMarcado = parseInt(golMarcado);
         }
 
-        if (flag){// max y min
-            minRojasRecibidas = tarjetasRojas;
+        //nacionalidad
+        if(nacionalidad == 1){
+            nacionalidad = "argentina";
+        }else {
+            if(nacionalidad == 2){
+                nacionalidad = "inglaterra";
+            }else{
+                nacionalidad = "otra"; // 
+            }
+        }
+
+        //posicion
+        switch(posicion){
+            case 1:
+                posicion = "arquero";
+                break;
+            case 2:
+                posicion = "defensor";
+                break;
+            case 3:
+                posicion = "mediocampista";
+                break;
+            default:
+                posicion = "delantero";
+        }
+        // maximo goleador, minimo en tarjetas rojas
+        if (flag){         
+            minRojasRecibidas = tarjetasRojas; // max y min
             maxGol = golMarcado;
 
             jugadorMenosRojasRecibidas = nombre;
@@ -98,7 +127,7 @@ function mostrar() {
                 maxGol = golMarcado;
                 nombreMaxGoleador = nombre;//a)El maximo goleador del torneo (nombre y goles)
             }
-            if(nacionalidad == "argentino"){
+            if(nacionalidad == "argentina"){
                 if (tarjetasRojas < minRojasRecibidas){
                     minRojasRecibidas = tarjetasRojas;
                     jugadorMenosRojasRecibidas = nombre;//b)El jugador Argentino con menos rojas recibidas.
@@ -107,11 +136,8 @@ function mostrar() {
             }
         }
 
-        if (nacionalidad == "inglaterra"){
-            contadorIngleses++;
-        }
+        respuesta = confirm("Quiere continuar ingresando?");
 
-        respuesta = confirm("Quiere continuar ingresando?")
         contadorGeneral ++;
     }while(respuesta);
 
@@ -119,10 +145,14 @@ function mostrar() {
     procentajeDeIngleses = (contadorIngleses * 100) / contadorGeneral;
 
     alert("El goleador del torneo: " + nombreMaxGoleador + " cantidad de goles: " + maxGol + "\n"
-        + "El jugador argentino con menos rojas recibidas: " + jugadorMenosRojasRecibidas + "   Cant. minimas rojas que recibió" + minRojasRecibidas + "\n"
+        + "El jugador argentino con menos rojas recibidas: " + jugadorMenosRojasRecibidas + "   Con" + minRojasRecibidas + "Tarjetas rojas" + "\n"
         + "Porcentaje de ingleses: " + procentajeDeIngleses);
 
 }
+
+
+
+
 /*regla de 3 simples para % jug ingleses
 10  general  100
 4 ingleses
