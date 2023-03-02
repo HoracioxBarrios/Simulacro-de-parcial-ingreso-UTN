@@ -112,7 +112,7 @@ function mostrar() {
         contadorGeneral++;
     }while(respuesta);
 
-    //c)El porcentaje de jugadores Ingleses de la liga
+    //c) El porcentaje de jugadores Ingleses de la liga
     procentajeDeIngleses = (contadorIngleses * 100) / contadorGeneral;
 
     alert("El goleador del torneo: " + nombreMaxGoleador + " cantidad: " + maxGol
