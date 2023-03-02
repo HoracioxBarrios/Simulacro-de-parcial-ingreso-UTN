@@ -70,22 +70,22 @@ function mostrar() {
         posicion = prompt("Ingrese Posición: 1)Arquero - 2)Defensor - 3)Mediocampista - 4)Delantero)");
         posicion = parseInt(posicion);
         // valido la posicion
-        while (posicion < 1 || posicion > 4 || isNaN(posicion)){
+        while (posicion < 1 || posicion > 4 || isNaN(posicion)){ // valido si estan fuera de rango num y si ingresa letras, pida dato correcto
             posicion = prompt("Incorrecto! - Ingrese Posición: 1)Arquero - 2)Defensor - 3)Mediocampista - 4)Delantero)");
             posicion = parseInt(posicion);
         }
 
         tarjetasRojas = prompt("Cantidad de tarjetas rojas recibidas");
         tarjetasRojas = parseInt(tarjetasRojas);  //parseo
-        while(tarjetasRojas < 0){// valido que no entren negativos
+        while(tarjetasRojas < 0 || isNaN(tarjetasRojas)){// valido que no entren negativos y letras
             tarjetasRojas = prompt("Incorrecto! - ingrese Cantidad de tarjetas rojas recibidas");
             tarjetasRojas = parseInt(tarjetasRojas);
         }
 
         golMarcado = prompt("ingrese Goles marcados");
         golMarcado = parseInt(golMarcado);  //parseo
-        while(golMarcado < 0){// valido que no entren negativos
-            golMarcado = prompt("Numero Invalido ingrese Goles marcados");
+        while(golMarcado < 0 || isNaN(golMarcado)){// valido que no entren negativos y letras
+            golMarcado = prompt("Incorrecto!- ingrese Goles marcados");
             golMarcado = parseInt(golMarcado);
         }
 
