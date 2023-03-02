@@ -28,7 +28,7 @@ NOTA: Deben poder ingresarse todos números positivos, no se deben pueden ingres
 
 *******************************************************************************/
 
-function mostrar() {
+function mostrar(){
   let nombre;
   let nacionalidad;
   let posicion;
