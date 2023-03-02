@@ -60,6 +60,7 @@ function mostrar() {
         }
         */
         nacionalidad = prompt("Ingrese nacionalidad");
+        nacionalidad = nacionalidad.toLowerCase();
 
 
         posicion = prompt("Posición (Arquero, Defensor, Mediocampista o Delantero)");
@@ -72,24 +73,25 @@ function mostrar() {
         }
 
         tarjetasRojas = prompt("Cabtidad de tarjetas rojas recibidas");
-        tarjetasRojas = parseInt(tarjetasRojas);//parseo
+        tarjetasRojas = parseInt(tarjetasRojas);  //parseo
         while(tarjetasRojas < 0){// valido que no entren negativos
             tarjetasRojas = prompt("Incorrecto! - ingrese Cabtidad de tarjetas rojas recibidas");
             tarjetasRojas = parseInt(tarjetasRojas);
         }
 
         golMarcado = prompt("ingrese Goles marcados");
-        golMarcado = parseInt(golMarcado);//parseo
+        golMarcado = parseInt(golMarcado);  //parseo
         while(golMarcado < 0){// valido que no entren negativos
             golMarcado = prompt("Numero Invalido ingrese Goles marcados");
             golMarcado = parseInt(golMarcado);
         }
 
-        if (flag){// max y min 
-            maxGol = golMarcado;
-            nombreMaxGoleador = nombre;
-
+        if (flag){// max y min
             minRojasRecibidas = tarjetasRojas;
+            maxGol = golMarcado;
+
+            jugadorMenosRojasRecibidas = nombre;
+            nombreMaxGoleador = nombre;
             flag = false;
         } else{
             if(golMarcado > maxGol){
@@ -100,6 +102,7 @@ function mostrar() {
                 if (tarjetasRojas < minRojasRecibidas){
                     minRojasRecibidas = tarjetasRojas;
                     jugadorMenosRojasRecibidas = nombre;//b)El jugador Argentino con menos rojas recibidas.
+                    
                 }
             }
         }
@@ -109,14 +112,14 @@ function mostrar() {
         }
 
         respuesta = confirm("Quiere continuar ingresando?")
-        contadorGeneral++;
+        contadorGeneral ++;
     }while(respuesta);
 
     //c) El porcentaje de jugadores Ingleses de la liga
     procentajeDeIngleses = (contadorIngleses * 100) / contadorGeneral;
 
-    alert("El goleador del torneo: " + nombreMaxGoleador + " cantidad: " + maxGol
-        + "El jugador argentino con menos rojas recibidas: " + jugadorMenosRojasRecibidas + "Cant. minimas rojas" + minRojasRecibidas
+    alert("El goleador del torneo: " + nombreMaxGoleador + " cantidad de goles: " + maxGol + "\n"
+        + "El jugador argentino con menos rojas recibidas: " + jugadorMenosRojasRecibidas + "   Cant. minimas rojas que recibió" + minRojasRecibidas + "\n"
         + "Porcentaje de ingleses: " + procentajeDeIngleses);
 
 }
