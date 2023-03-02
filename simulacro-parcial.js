@@ -34,8 +34,8 @@ function mostrar(){
     let posicion;
     let tarjetasRojas;
     let golMarcado;
-    let maxGol;
     let nombreMaxGoleador;
+    let maxGol;
     let flag;
     let minRojasRecibidas;
     let JugadorMenosRojasRecibidas;
@@ -50,7 +50,8 @@ function mostrar(){
     do {
 
         nombre = prompt("Ingrese nombre del jugador");
-        /* //asi esria bien la validacion, aunque no es algo que se nos va a evaluar si ingresa un numero en este caso.
+        //asi esria bien la validacion, aunque no es algo que se nos va a evaluar si ingresa un numero en este caso.
+        /* 
         while(!isNaN(nombre)){// si el user ingresa un numero isNaN devuelve false, entonces niego para que sea verdadero y pida el nombre que es string
             nombre = prompt("Incorrecto! - Ingrese nombre del jugador");
         }
@@ -89,24 +90,21 @@ function mostrar(){
         }else {
             if(golMarcado > maxGol){
                 maxGol = golMarcado;
-                nombreMaxGoleador = nombre;//a)El goleador del torneo
-    
+                nombreMaxGoleador = nombre;//a)El goleador del torneo (nombre y max gol)
             }
             if(nacionalidad == "argentino"){
                 if(tarjetasRojas < minRojasRecibidas){
                     minRojasRecibidas = tarjetasRojas;
+                    JugadorMenosRojasRecibidas = nombre;//b)El jugador Argentino con menos rojas recibidas.
                 }
-                JugadorMenosRojasRecibidas = nombre;//b)El jugador Argentino con menos rojas recibidas.
+                
 
             }
         }
         respuesta = confirm("Quiere continuar ingresando?")
     }while(respuesta);
    
-    alert("maximo gol: " + maxGol + " nombre max goleador: " + nombreMaxGoleador + "\n"
-    + "b)El jugador Argentino con menos rojas recibidas." + JugadorMenosRojasRecibidas + " tarj min rojas " + minRojasRecibidas
-    )
-
+   
 
 }
 
