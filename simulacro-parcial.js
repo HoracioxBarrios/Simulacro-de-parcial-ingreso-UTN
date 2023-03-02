@@ -38,7 +38,7 @@ function mostrar() {
     let maxGol;
     let flag;
     let minRojasRecibidas;
-    let JugadorMenosRojasRecibidas;
+    let jugadorMenosRojasRecibidas;
     let respuesta;
     let contadorGeneral;
     let contadorIngleses;
@@ -99,7 +99,7 @@ function mostrar() {
             if(nacionalidad == "argentino"){
                 if (tarjetasRojas < minRojasRecibidas){
                     minRojasRecibidas = tarjetasRojas;
-                    JugadorMenosRojasRecibidas = nombre;//b)El jugador Argentino con menos rojas recibidas.
+                    jugadorMenosRojasRecibidas = nombre;//b)El jugador Argentino con menos rojas recibidas.
                 }
             }
         }
@@ -116,7 +116,7 @@ function mostrar() {
     procentajeDeIngleses = (contadorIngleses * 100) / contadorGeneral;
 
     alert("El goleador del torneo: " + nombreMaxGoleador + " cantidad: " + maxGol
-        + "El jugador argentino con menos rojas recibidas: " + JugadorMenosRojasRecibidas + "Cant. minimas rojas" + minRojasRecibidas
+        + "El jugador argentino con menos rojas recibidas: " + jugadorMenosRojasRecibidas + "Cant. minimas rojas" + minRojasRecibidas
         + "Porcentaje de ingleses: " + procentajeDeIngleses);
 
 }
