@@ -39,6 +39,13 @@ function mostrar(){
     let diagnostico;
     let vacuna;
     let respuesta;
+    
+    let nombreMascotaMasViejaConVacuna;
+    let flagMascotaMasViejaconVacuna;
+    let contadorSinVacunaConParasitos;
+
+    flagMascotaMasViejaconVacuna = true;
+    contadorSinVacunaConParasitos = 0;
 
     do{
         //obtenemos nombre
@@ -116,7 +123,23 @@ function mostrar(){
         }
         // Operamos los datos -------------------------------------------------------
         //a) Nombre de la mascota más vieja con la vacuna antirrábica
+        if(vacuna == "si"){
+            if(flagMascotaMasViejaconVacuna == true ){
+                nombreMascotaMasViejaConVacuna = nombreMascota;
+            }else{
+                if(nombreMascota > nombreMascotaMasViejaConVacuna){
+                    nombreMascotaMasViejaConVacuna = nombreMascota;
+                }
+            }
+        }else{// entonces vacuna es "No"    /b) Cantidad de mascotas sin vacuna antirrábica y con parásitos
+            if(diagnostico == "Parasitos"){
+                contadorSinVacunaConParasitos ++;
+            }
+        }
         
+        //c) El tipo de mascota con más ingresos por problemas digestivos.
+
+
 
         respuesta = confirm("Desea seguir ingresando Datos?");
     }while(respuesta == true);
