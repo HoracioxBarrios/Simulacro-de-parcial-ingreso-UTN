@@ -13,7 +13,7 @@ Es necesario registrar el ingreso de las mascotas al hospital, para esto hay que
 los siguientes datos y encasillarlos en ciertos diagnósticos para poder derivarlos adecuadamente:
 
 Nombre de la mascota
-Edad (Validar 1 - 20)
+Edad (Validar 1 - 20) 
 Tipo: (Validar “gato”, “perro”, “hamster”)
 Peso: (Más de 0)
 Diagnostico: (Validar “problemas digestivos”, “otitis”, “alergias en la piel”, “parasitos”, 
@@ -22,7 +22,7 @@ Vacuna antirrábica (validar “si”, ”no”)
 
 Informes:
 
-a) Nombre de la mascota más vieja con la vacuna antirrábica *
+a) Nombre de la mascota más vieja con la vacuna antirrábica ******** ok
 b) Cantidad de mascotas sin vacuna antirrábica y con parásitos
 c) El tipo de mascota con más ingresos por problemas digestivos.
 d) Nombre, edad y diagnóstico de la mascota más joven ingresada.
@@ -31,14 +31,181 @@ e) Cantidad de perros ingresados por otitis.
 
 
 *******************************************************************************/
-
 function mostrar(){
     let nombreMascota;
+    let edadMascota;
+    let tipoMascota;
+    let pesoMascota;
+    let diagnostico;
+    let vacuna;
+    let respuesta;
+
+    do{
+        //obtenemos nombre
+        nombreMascota = prompt("Ingrese nombre de mascota");
+
+        //obtenemos edad de mascota y validamos
+        edadMascota = prompt("ingrese edad de mascota de 1 a 20");
+        edadMascota = parseInt(edadMascota);
+        while(edadMascota <= 0 || edadMascota > 20){
+            edadMascota = prompt("Edad Invalida! ingrese edad de mascota de 1 a 20");
+            edadMascota = parseInt(edadMascota);
+        }
+
+        //obtenemos tipo de mascota y validamos - usamos if
+        tipoMascota = prompt("ingrese tipo de mascota: 1)gato, 2)perro, 3)hamster");
+        tipoMascota = parseInt(tipoMascota);
+        while(tipoMascota <= 0 || tipoMascota > 3){
+            tipoMascota = prompt("Incorrecto! ingrese tipo de mascota: 1)gato, 2)perro, 3)hamster");
+            tipoMascota = parseInt(tipoMascota);
+        }
+
+        // obtenemos peso y vlidamos
+        pesoMascota = prompt("ingrese peso de mascota ");
+        pesoMascota = parseFloat(pesoMascota);
+        while(pesoMascota <= 0 ){
+            pesoMascota = prompt("Invalido! ingrese peso de mascota");
+            pesoMascota = parseFloat(pesoMascota);
+        }
+
+        // obtenemos diagnostico y validamos - usamos switch
+        diagnostico = prompt("Diagnostico: 1)Problemas digestivos, 2) Otitis, 3) Alergias en la piel, 4) Parasitos, 5) Picaduras");
+        diagnostico = parseInt(diagnostico);
+        while(diagnostico <= 0 || diagnostico > 5){
+            diagnostico = prompt("Incorrecto! - Diagnostico: 1)Problemas digestivos, 2) Otitis, 3) Alergias en la piel, 4) Parasitos, 5) Picaduras");
+            diagnostico = parseInt(diagnostico);
+        }
+
+        // obtenemos vacuna SI o NO
+        vacuna = prompt("Esta vacunado? si o no");
+        vacuna = vacuna.toLowerCase();
+        while(vacuna != "si" && vacuna != "no"){
+            vacuna = prompt("Esta vacunado? si o no");
+            vacuna = vacuna.toLowerCase();
+        }
+
+
+
+        //segun el valor ingresado ,defino el tipo de mascota.
+        if(tipoMascota == 1){
+            tipoMascota = "Gato";
+        }else{
+            if(tipoMascota == 2){
+                tipoMascota = "Perro";
+            }else{
+                tipoMascota = "Hamster";
+            }
+        }
+
+        //uso un switch para cada caso de Diagnostico
+        switch(diagnostico){
+            case 1:
+                diagnostico = "Problemas digestivos";
+                break;
+            case 2:
+                diagnostico = "Otitis";
+                break;
+            case 3:
+                diagnostico = "Alergias en la piel";
+                break;
+            case 4:
+                diagnostico = "Parasitos";
+                break;
+            default:
+                diagnostico = "Picaduras";
+        }
+        // Operamos los datos -------------------------------------------------------
+        //a) Nombre de la mascota más vieja con la vacuna antirrábica
+        
+
+        respuesta = confirm("Desea seguir ingresando Datos?");
+    }while(respuesta == true);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+function mostrar(){
+    let nombreMascota;    
     let edadMascota;
     let tipoDeMascota;
     let peso;
     let diagnostico;
     let vacuna;
+
+
     let flagEdadMaxConVacuna;
     let flagEdadMin
     let edadMaximaConVacuna;
@@ -53,7 +220,7 @@ function mostrar(){
     let nombreMascotaEdadMinima;
     let diagnosticoMascotaEdadMin;
     let ContadorPerrosOtitis;
-  
+
 
 
     flagEdadMaxConVacuna = true;
@@ -67,36 +234,37 @@ function mostrar(){
     
 
     do {
+        //nombre de mascota
         nombreMascota = prompt("Ingrese nombre de la mascota");
-
+        //edad de mascota
         edadMascota = prompt("Ingrese la edad");
         edadMascota = parseInt(edadMascota);
         while(edadMascota <= 0 || edadMascota > 20 || isNaN(edadMascota)){
             edadMascota = prompt("Incorrecto! - Ingrese la edad");
             edadMascota = parseInt(edadMascota);
         }
-
+        //tipo de mascota
         tipoDeMascota = prompt("ingrese tipo de mascota:  1)gato,- 2)perro - 3)hamster");
         tipoDeMascota = parseInt(tipoDeMascota);
         while(tipoDeMascota <= 0 || tipoDeMascota > 3 || isNaN(tipoDeMascota)){
             tipoDeMascota = prompt("Incorrecto! - ingrese tipo de mascota:  1)gato,- 2)perro - 3)hamster ");
             tipoDeMascota = parseInt(tipoDeMascota);
         }
-
+        //peso de la mascota
         peso = prompt("ingrese peso ");
         peso = parseFloat(peso);
         while(peso <= 0){
             peso = prompt("ingrese peso ");
             peso = parseFloat(peso);
         }
-
+        //diagnostico
         diagnostico = prompt("ingrese diagnostico: 1)problemas digestivos - 2)otitis - 3)alergias en la piel -  4)parasitos - 5)picadura");
         diagnostico = parseInt(diagnostico);
         while(diagnostico <= 0 || diagnostico > 5){
             diagnostico = prompt("Icorrecto! - ingrese diagnostico: 1)problemas digestivos - 2)otitis - 3)alergias en la piel -  4)parasitos- 5)picadura");
             diagnostico = parseInt(diagnostico);
         }
-
+        //vacuna
         vacuna = prompt("Vacuna antirrabica - Ingrese 'si' / 'no' ");
         vacuna = vacuna.toLowerCase();
         while(vacuna != "si" && vacuna != "no"){
@@ -104,7 +272,7 @@ function mostrar(){
             vacuna = vacuna.toLowerCase();
         }
 
-        //tipo de mascota
+        //tipo de mascota - asignamos valores
         if(tipoDeMascota == 1){
             tipoDeMascota = "gato";
         }else{
@@ -114,9 +282,9 @@ function mostrar(){
                 tipoDeMascota = "hamster";
             }
         }
+        
 
-
-        //diagnostico
+        //diagnostico - 
         switch(diagnostico){
             case 1:
                 diagnostico = "problemas digestivos";
@@ -167,7 +335,7 @@ function mostrar(){
             edadMinima = edadMascota;
             nombreMascotaEdadMinima = nombreMascota; 
             diagnosticoMascotaEdadMin = diagnostico;
-            flagEdadMin = flase;
+            flagEdadMin = false;
         }else {
                 if(edadMascota < edadMinima){
                 edadMinima = edadMascota;
@@ -178,7 +346,7 @@ function mostrar(){
         
 
         //b) Cantidad de mascotas sin vacuna antirrábica y con parásitos
-        if(vacuna == "si" && diagnostico == "parasitos"){
+        if(vacuna == "no" && diagnostico == "parasitos"){
             contadorCantMascotaSinVacunaConParasitos ++;
         }
         
@@ -203,7 +371,7 @@ function mostrar(){
         
 
   
-   document.write("Nombre de la mascota más vieja con la vacuna antirrábica  " + nombreEdadMaximaConVacuna + "</br>"
+    document.write("Nombre de la mascota más vieja con la vacuna antirrábica  " + nombreEdadMaximaConVacuna + "</br>"
     + "su edad: " + edadMaximaConVacuna + "</br>"
     + "Cantidad de mascotas sin vacuna antirrábica y con parásitos " + contadorCantMascotaSinVacunaConParasitos + "</br>"
     + "El tipo de mascota con más ingresos por problemas digestivos " + tipoMascotaConMasproblemasDigestivos + "</br>"
@@ -214,3 +382,4 @@ function mostrar(){
    
 } //fin de la funcion
 
+*/
