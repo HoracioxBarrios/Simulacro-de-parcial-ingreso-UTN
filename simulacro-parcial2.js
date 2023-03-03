@@ -39,7 +39,7 @@ function mostrar(){
     let diagnostico;
     let vacuna;
     let respuesta;
-    let nombreMascotaMasViejaConVacuna;
+    let nombreEdadMaxima;
     let flagMascotaMasViejaconVacuna;
     let edadMaxima;
     let contadorSinVacunaConParasitos;
@@ -154,11 +154,11 @@ function mostrar(){
         if(vacuna == "si"){
             if(flagMascotaMasViejaconVacuna == true){
                 edadMaxima = edadMascota;
-                nombreMascotaMasViejaConVacuna = nombreMascota;
+                nombreEdadMaxima = nombreMascota;
             }else{
                 if(edadMascota > edadMaxima){
                     edadMascota = edadMascota;
-                    nombreMascotaMasViejaConVacuna = nombreMascota;
+                    nombreEdadMaxima = nombreMascota;
                 }
             }
         }else{// entonces vacuna es "No"    /b) Cantidad de mascotas sin vacuna antirrábica y con parásitos
@@ -204,7 +204,7 @@ function mostrar(){
     }
 
 
-    document.write("Nombre de la mascota más vieja con la vacuna antirrábica: " + nombreMascotaMasViejaConVacuna + "</br>"
+    document.write("Nombre de la mascota más vieja con la vacuna antirrábica: " + nombreEdadMaxima + "</br>"
     + "Cantidad de mascotas sin vacuna antirrábica y con parásitos: " + contadorSinVacunaConParasitos + "</br>"
     + "El tipo de mascota con más ingresos por problemas digestivos: " + mascotaMaximoIngresoDigestivo + "</br>"
     + "Nombre de la mascota mas joven: " + nombreEdadMinima + " su edad: " + edadMinima + " su diagnostico: " + diagnosticoEdadMinima + "</br>"
