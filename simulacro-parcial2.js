@@ -43,9 +43,16 @@ function mostrar(){
     let nombreMascotaMasViejaConVacuna;
     let flagMascotaMasViejaconVacuna;
     let contadorSinVacunaConParasitos;
+    let contadorPerroDigestivos;
+    let contadorGatosDigestivos;
+    let contadorHamstersDigestivos;
+    let mascotaMaximoIngresoDigestivo;
 
     flagMascotaMasViejaconVacuna = true;
     contadorSinVacunaConParasitos = 0;
+    contadorGatosDigestivos = 0;
+    contadorPerroDigestivos = 0;
+    contadorHamstersDigestivos = 0;
 
     do{
         //obtenemos nombre
@@ -108,6 +115,15 @@ function mostrar(){
         switch(diagnostico){
             case 1:
                 diagnostico = "Problemas digestivos";
+                if(tipoMascota == "Gato"){
+                    contadorGatosDigestivos ++;
+                }else{
+                    if(tipoMascota == "Perro"){
+                        contadorPerroDigestivos ++;
+                    }else{
+                        contadorHamstersDigestivos ++;
+                    }
+                }
                 break;
             case 2:
                 diagnostico = "Otitis";
@@ -121,7 +137,7 @@ function mostrar(){
             default:
                 diagnostico = "Picaduras";
         }
-        // Operamos los datos -------------------------------------------------------
+        //-------------------------------------------------------
         //a) Nombre de la mascota más vieja con la vacuna antirrábica
         if(vacuna == "si"){
             if(flagMascotaMasViejaconVacuna == true ){
@@ -137,15 +153,47 @@ function mostrar(){
             }
         }
         
-        //c) El tipo de mascota con más ingresos por problemas digestivos.
+        
+        
+
+        
 
 
 
         respuesta = confirm("Desea seguir ingresando Datos?");
     }while(respuesta == true);
-}
+
+    
+    //c) El tipo de mascota con más ingresos por problemas digestivos.
+    if(contadorGatosDigestivos > contadorPerroDigestivos && contadorGatosDigestivos > contadorHamstersDigestivos){
+        mascotaMaximoIngresoDigestivo = tipoMascota;
+    }else{
+        if(contadorPerroDigestivos > contadorGatosDigestivos && contadorPerroDigestivos > contadorHamstersDigestivos){
+            mascotaMaximoIngresoDigestivo = tipoMascota;
+        }else{
+            if(contadorHamstersDigestivos > contadorGatosDigestivos && contadorHamstersDigestivos > contadorPerroDigestivos){
+                mascotaMaximoIngresoDigestivo = tipoMascota;
+            }else{
+                mascotaMaximoIngresoDigestivo = "No hay un maximo";
+            }
+        }
+        
+    }
 
 
+    document.write("Nombre de la mascota más vieja con la vacuna antirrábica: " + nombreMascotaMasViejaConVacuna + "</br>"
+    + "Cantidad de mascotas sin vacuna antirrábica y con parásitos: " + contadorSinVacunaConParasitos + "</br>"
+    + "El tipo de mascota con más ingresos por problemas digestivos: " + mascotaMaximoIngresoDigestivo + "</br>")
+
+    }//fin
+    
+
+    /*a) Nombre de la mascota más vieja con la vacuna antirrábica 
+    b) Cantidad de mascotas sin vacuna antirrábica y con parásitos
+    c) El tipo de mascota con más ingresos por problemas digestivos.
+    
+    d) Nombre, edad y diagnóstico de la mascota más joven ingresada.
+    e) Cantidad de perros ingresados por otitis. */
 
 
 
